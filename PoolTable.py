@@ -1,7 +1,7 @@
-
+###Still have a lot of work to be done. Needs reformatting and much more. Everything is still case sensitive, and still working on getting it to work properly before writing to a text file, which is also giving me issues. 
 import time
 OpenTables = []
-ReservedTables = []
+#ReservedTables = []
 filename = "testfile.txt"
 
 
@@ -56,6 +56,7 @@ OpenTables.append(table12)
 current = time.ctime()
 print(current)
 
+
 while True:
     admin = (raw_input("Type 'Status' to show status of all tables. '\n' If you would like to book a table type 'Book' '\n' Press 'q' to quit."))
 
@@ -65,11 +66,12 @@ while True:
     book = (raw_input("Please enter the name of the table you would like change the status of."))
 
     if book == "Table 1":
-        if table1.openStatus == "not Occupied":
+##by default the table status is Not Occupided, and I can get it to change to Occupied.
             table1.openStatus = "Occupied"
             table1.time = current
             TableDisplay()
-        elif table1.openStatus =="Occupied":
+    ###Cannot get it to change back from Occupied to Not occupied.
+    elif table1.openStatus =="Occupied":
             table1.openStatus = "Not Occupied"
             table1.time = current
             TableDisplay()
@@ -78,8 +80,6 @@ while True:
         table2.openStatus = "Occupied"
         table2.time = current
         TableDisplay()
-        file_object  = open(“filename”, w) as file_object:
-        file_object.write(TableDisplay)
 
     elif book == "Table 3":
         table3.openStatus = "Occupied"
